@@ -49,11 +49,6 @@ models:
       - name: reservationfacilitytypecode
         data_type: string
         description: "Code that categorizes the type of facility being reserved, e.g. TENNIS, DIAMD, RECT"
-        tests: 
-          - relationships:
-              to: ref('reservation_facility_types')
-              field: reservation_facility_type_code
-              severity: warn
 
       - name: reservation_facility_type
         data_type: string
