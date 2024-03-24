@@ -1,0 +1,7 @@
+version: 2
+
+seeds: 
+  - name: reservation_facility_types
+    description: >
+      Code that categorizes the type of facility being reserved, e.g. TENNIS, DIAMD, RECT. 
+      These codes are translated into human readable descriptions in the CSV file

@@ -1,0 +1,83 @@
+version: 2
+
+models:
+  - name: dim_facility_types
+    description: "List of facility types translated from their facility type codes."
+    columns:
+      - name: reservation_facility_type_code
+        data_type: string
+        description: "Code that categorizes the type of facility being reserved, e.g. TENNIS, DIAMD, RECT"
+
+      - name: reservation_facility_type
+        data_type: string
+        description: "Description that categorizes the type of facility being reserved, e.g. Tennis Courts, Diamond Fields, Rectangular Fields"
+
+  - name: fact_reservations
+    description: >
+      The Arlington Dept of Parks and Recreation manages park, tennis court, rectangular field, picnic shelter, diamond field, 
+      community center and other facility reservations. This dataset includes detailed reservation information for each facility.
+    columns:
+      - name: parkfacilityreservationkey
+        data_type: int64
+        description: ""
+        tests:
+          - unique:
+              severity: warn
+          - not_null:
+              severity: warn 
+
+      - name: locationname
+        data_type: string
+        description: "	The name of the location of the facility, such as the name of a park."
+
+      - name: facilityname
+        data_type: string
+        description: "The name of the facility that is reserved, e.g. Tennis Court #1"
+
+      - name: transactiondtm
+        data_type: timestamp
+        description: "The date and time on which the reservation transaction was entered."
+
+      - name: facilitylocationcode
+        data_type: string
+        description: "Code that defines a specific Parks and Recreation location. E.g. CARV = Carver Center."
+
+      - name: facilityspacecode
+        data_type: string
+        description: "Code that identifies a specific space within a facility. E.g. GYM-A., RM138, CRT 1."
+
+      - name: reservationfacilitytypecode
+        data_type: string
+        description: "Code that categorizes the type of facility being reserved, e.g. TENNIS, DIAMD, RECT"
+        tests: 
+          - relationships:
+              to: ref('reservation_facility_types')
+              field: reservation_facility_type_code
+              severity: warn
+
+      - name: reservation_facility_type
+        data_type: string
+        description: "Description that categorizes the type of facility being reserved, e.g. Tennis Courts, Diamond Fields, Rectangular Fields"
+
+      - name: combokeycode
+        data_type: string
+        description: "Identifies the facility space that has been reserved. It is a combination of the FacilityTypeCode, FacilityLocationCode,and FacilitySpaceCode."
+
+      - name: reservationtypename
+        data_type: string
+        description: "Name of the type of entity that is reserved, i.e. Facility."
+
+      - name: reservationbegindtm
+        data_type: timestamp
+        description: "The date/time at which the reservation begins."
+
+      - name: reservationenddtm
+        data_type: timestamp
+        description: "The date/time at which the reservation ends."
+
+      - name: reservationstatuscode
+        data_type: string
+        description: "The status of the reservation: Firm, Internal, Cancelled"
+        tests:
+          - accepted_values:
+              values: ['Firm', 'Internal', 'Cancelled']
