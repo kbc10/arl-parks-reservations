@@ -5,8 +5,7 @@
             "field": "transactiondtm",
             "data_type": "datetime",
             "granularity": "day"
-        },
-        
+        }
     )
 }}
 
