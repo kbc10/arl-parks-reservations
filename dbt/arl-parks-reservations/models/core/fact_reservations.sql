@@ -1,6 +1,12 @@
 {{
     config(
-        materialized='table'
+        materialized='table',
+        partition_by={
+            "field": "transactiondtm",
+            "data_type": "datetime",
+            "granularity": "day"
+        },
+        
     )
 }}
 
