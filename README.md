@@ -65,7 +65,7 @@ This project has the goal of answering the following questions:
 
 ## Results
 
-The dashboard is publicly available in this [link](https://lookerstudio.google.com/s/o_KRHFslJWk).
+The dashboard is publicly available in this [link](https://lookerstudio.google.com/s/tKVgUHbPTGc).
 
 ![](./img/dashboard.png)
 
