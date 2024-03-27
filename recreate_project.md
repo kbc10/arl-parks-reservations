@@ -30,24 +30,31 @@ terraform init
 ### Set up Mage
 1. The [Mage quickstart repo](https://github.com/mage-ai/compose-quickstart) provides a template for users to have an easy way to deploy a project using Docker. 
 2. Run the following commands to copy the quickstart repo to your directory and start running the Mage Docker container.
-```
-git clone https://github.com/mage-ai/compose-quickstart.git mage-quickstart \
-&& cd mage-quickstart \
-&& cp dev.env .env && rm dev.env \
-&& docker compose up
-```
-3. Open http://localhost:6789 in your browser to start developing pipelines.
-4. Create a standard (batch) pipeline to load the dataset from the API and to move it into a GCS bucket as a parquet file. 
+    ```
+    git clone https://github.com/mage-ai/compose-quickstart.git mage-quickstart \
+    && cd mage-quickstart \
+    && cp dev.env .env && rm dev.env
+    ```
+3. Edit `.env` file in the `mage-quickstart` directory and name your project with the `PROJECT_NAME` variable.
+4. Run `docker compose up` in the terminal to start the Mage docker container.
+5. Navigate to and edit the io_config.yaml file in your new project's directory under the `mage-quickstart` directory to change the Google section to the following:
+    ```
+    # Google
+      GOOGLE_SERVICE_ACC_KEY_FILEPATH: "/home/src/your-private-key.json"
+      GOOGLE_LOCATION: US # Optional
+    ```
+6. Open http://localhost:6789 in your browser to start developing pipelines.
+7. Create a standard (batch) pipeline to load the dataset from the API and to move it into a GCS bucket as a parquet file. 
 
     <img src="./img/new_batch_pipeline.png" alt="new_batch_pipeline" width="200"/>
 
     * [load_api_data.py](./mage/arl-parks-reservations-mage/data_loaders/load_api_data.py) is used as a data loader block. 
     * [export_to_gcs.py](./mage/arl-parks-reservations-mage/data_exporters/export_to_gcs.py) is used as a data exporter block
-5. Create a standard (batch)pipeline to load the parquet file from GCS into BigQuery
+8. Create a standard (batch)pipeline to load the parquet file from GCS into BigQuery
     * [load_parks_res_gcs.py](./mage/arl-parks-reservations-mage/data_loaders/load_parks_res_gcs.py) is used as a data loader block.
     * [transformer_clean_column_names.py](./mage/arl-parks-reservations-mage/transformers/transformer_clean_column_names.py) is used as a transformer block
     * [export_to_bq.sql](./mage/arl-parks-reservations-mage/data_exporters/export_to_bq.sql) is used as a data exporter block.
-6. OPTIONAL: The dataset gets updated daily. You can create triggers for these pipelines to run daily to update GCS and BigQuery with the most recent data.
+9. OPTIONAL: The dataset gets updated daily. You can create triggers for these pipelines to run daily to update GCS and BigQuery with the most recent data.
 
     <img src="./img/schedule_trigger.png" alt="schedule_trigger" width="400"/>
 
