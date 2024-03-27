@@ -15,21 +15,18 @@ source as (
 renamed as (
 
     select
-        {{ dbt.safe_cast("parkfacilityreservationkey", api.Column.translate_type("integer")) }} as parkfacilityreservationkey,
-        cast(locationname as string) as locationname,
-        cast(facilityname as string) as facilityname,
-        cast(transactiondtm as timestamp) as transactiondtm,
-        cast(facilitylocationcode as string) as facilitylocationcode,
-        cast(facilityspacecode as string) as facilityspacecode,
-        cast(reservationfacilitytypecode as string) as reservationfacilitytypecode,
-        cast(combokeycode as string) as combokeycode,
-        cast(reservationtypename as string) as reservationtypename,
-        cast(customername as string) as customername,
-        cast(householdnbr as string) as householdnbr,
-        {{ dbt.safe_cast("headcnt", api.Column.translate_type("integer")) }} as headcnt,
-        cast(reservationbegindtm as timestamp) as reservationbegindtm,
-        cast(reservationenddtm as timestamp) as reservationenddtm,
-        cast(reservationstatuscode as string) as reservationstatuscode,
+        {{ dbt.safe_cast("park_facility_reservation_key", api.Column.translate_type("integer")) }} as park_facility_reservation_key,
+        cast(location_name as string) as location_name,
+        cast(facility_name as string) as facility_name,
+        cast(transaction_dtm as timestamp) as transaction_dtm,
+        cast(facility_location_code as string) as facility_location_code,
+        cast(facility_space_code as string) as facility_space_code,
+        cast(reservation_facility_type_code as string) as reservation_facility_type_code,
+        cast(combo_key_code as string) as combo_key_code,
+        cast(reservation_type_name as string) as reservation_type_name,
+        cast(reservation_begin_dtm as timestamp) as reservation_begin_dtm,
+        cast(reservation_end_dtm as timestamp) as reservation_end_dtm,
+        cast(reservation_status_code as string) as reservation_status_code,
     from source
 
 )
