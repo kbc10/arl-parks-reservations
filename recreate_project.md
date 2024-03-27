@@ -12,7 +12,7 @@
 
 4. Generate service-account-keys (.json) for authentication. Terraform and dbt will use this key to integrate with GCS and BigQuery. Under your service account, go to the "Keys" tab, then click on "Add Key" -> "Create New Key" -> "JSON" -> "Create". A JSON source file will be downloaded. Add this file to your project directory.
 
-    <img src="./img/gcp_json_key.png" alt="gcp_json_key" width="300"/>
+    <img src="./img/gcp_json_key.png" alt="gcp_json_key" width="200"/>
 
 ### Set up Terraform
 1. Install [Terraform](https://developer.hashicorp.com/terraform/install?ajs_aid=268d2cbe-21f8-4c6c-9588-849c28f1444b&product_intent=terraform) if you have't already done so.
@@ -83,9 +83,9 @@
     ```dbt build --select --vars '{'is_test_run': 'false'}'``` to build the fact and dimension tables using the entire dataset.
 8. To deploy this project, you must create a production environment. Click on "Deploy" -> "Environments" -> "Create Environment". Enter in the environment details as below. 
 
-    <img src="./img/create_environment.png" alt="create_branch" width="900"/>
+    <img src="./img/create_environment.png" alt="create_branch" width="1000"/>
 
 9. Go to your newly made Production environment and click on "Create Job" -> "Deploy Job". Edit the job to have a name and enter the job details as below.
     > Note: You can optionally have the job run on a schedule the build the data models with new data. This would be daily since the reservations dataset is updated daily. 
 
-    <img src="./img/deploy_job.png" alt="deploy_job" width="900"/>
+    <img src="./img/deploy_job.png" alt="deploy_job" width="1000"/>
