@@ -24,7 +24,7 @@
     terraform init
     ```
 4. Run `terraform plan` to see how terraform will create or modify our infrastructure (i.e. our GCS bucket and BigQUery dataset).
-5. Apply the plan with `terraform plan`.
+5. Apply the plan with `terraform apply`.
 6. Check your GCP project to see that a bucket and dataset have been created.
 
 ### Set up Mage
