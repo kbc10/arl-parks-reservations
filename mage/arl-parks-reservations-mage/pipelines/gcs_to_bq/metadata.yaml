@@ -39,12 +39,11 @@ blocks:
     data_provider_database: dev-fusion-418001
     data_provider_profile: default
     data_provider_schema: arl_parks_dataset
-    data_provider_table: arl_parks_data
     dbt: {}
     disable_query_preprocessing: false
     export_write_policy: replace
     limit: 1000
-    use_raw_sql: false
+    use_raw_sql: true
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
@@ -52,7 +51,7 @@ blocks:
   language: sql
   name: export_to_bq
   retry_config: null
-  status: executed
+  status: updated
   timeout: null
   type: data_exporter
   upstream_blocks:
