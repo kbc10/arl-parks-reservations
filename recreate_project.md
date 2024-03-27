@@ -37,7 +37,7 @@ terraform init
     ```
 3. Edit `.env` file in the `mage-quickstart` directory and name your project with the `PROJECT_NAME` variable.
 4. Run `docker compose up` in the terminal to start the Mage docker container.
-5. Navigate to and edit the io_config.yaml file in your new project's directory under the `mage-quickstart` directory to change the Google section to the following:
+5. Navigate to and edit the 'io_config.yaml' file in your new project's directory under the `mage-quickstart` directory to change the Google section to the following:
     ```
     # Google
       GOOGLE_SERVICE_ACC_KEY_FILEPATH: "/home/src/your-private-key.json"
