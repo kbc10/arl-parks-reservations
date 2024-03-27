@@ -1,6 +1,6 @@
 variable "credentials" {
   description = "My Credentials"
-  default     = "/workspaces/arl-parks-reservations/keys/sa-private-key.json"
+  default     = "./keys/my-creds.json"
   #ex: if you have a directory where this file is called keys with your service account json file
   #saved there as my-creds.json you could use default = "./keys/my-creds.json"
 }
@@ -8,19 +8,19 @@ variable "credentials" {
 
 variable "project" {
   description = "Project"
-  default     = "dev-fusion-418001"
+  default     = "your-project-name"
 }
 
 variable "region" {
   description = "Region"
   #Update the below to your desired region
-  default     = "us-east4"
+  default     = "your-region"
 }
 
 variable "location" {
   description = "Project Location"
   #Update the below to your desired location
-  default     = "US"
+  default     = "your-location"
 }
 
 variable "bq_dataset_name" {
