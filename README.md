@@ -6,7 +6,7 @@ For the steps of how to reproduce this project, see [recreate_project.md](recrea
 
 ## Project description
 
-The Arlington Dept of Parks and Recreation manages park, tennis court, rectangular field, picnic shelter, diamond field, community center and other facility reservations. The reservations dataset includes detailed reservation information for each facility. The department would like to analyze this data to understand which spaces are being reserved/utilized the most for each type of facility that they manage. This project aims to develop a streamlined end-to-end data pipeline to transform the dataset into a dashboard that is more suitable for querying and analysis to allow the department to make more informed decisions regarding improving their facilities to better suit their community's needs.
+The Arlington Dept of Parks and Recreation manages park, tennis court, rectangular field, picnic shelter, diamond field, community center and other facility reservations. The reservations dataset includes detailed reservation information for each facility. The department would like to analyze this data to understand which spaces are being reserved/utilized the most for each type of facility they manage. This project aims to develop a streamlined end-to-end data pipeline to transform the dataset into a dashboard that is more suitable for querying and analysis. This would allow the department to make more informed decisions regarding improving their facilities to better suit their community's needs.
 
 This project has the goal of answering the following questions:
 
@@ -78,7 +78,7 @@ The dashboard is publicly available in this [link](https://lookerstudio.google.c
     3. Tennis Courts (19.6%)
     4. Diamond Fields (10.8%)
 
-* The most reserved location is Walter Reed Community Center with 98,055 reservations from 2015-present and the least is Thrifton Hills Park with 56.
+* The most reserved location is Walter Reed Community Center with 98,105 (at the time of this writing) reservations and counting from 2015-present and the least is Thrifton Hills Park with 56 and counting.
 
 * Reservations for Rectangular Fields have risen between 2015-2023 with a dip in 2020 due to the pandemic indicating generally increased use by the community.
 
