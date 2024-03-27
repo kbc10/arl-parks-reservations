@@ -6,7 +6,7 @@ For the steps of how to reproduce this project, see [recreate-project.md](recrea
 
 ## Project description
 
-The Arlington Dept of Parks and Recreation manages park, tennis court, rectangular field, picnic shelter, diamond field, community center and other facility reservations. The reservations dataset includes detailed reservation information for each facility. The department would like to analyze this data to understand which spaces are being reserved/utilized the most for each type of facility that they manange. This project aims to develop an streamlined end-to-end data pipeline to transform the dataset into a dashboard that is more suitable for querying and analysis to allow the department to make more informed decisions regarding changing their facilities to better suit the communityu's needs.
+The Arlington Dept of Parks and Recreation manages park, tennis court, rectangular field, picnic shelter, diamond field, community center and other facility reservations. The reservations dataset includes detailed reservation information for each facility. The department would like to analyze this data to understand which spaces are being reserved/utilized the most for each type of facility that they manage. This project aims to develop a streamlined end-to-end data pipeline to transform the dataset into a dashboard that is more suitable for querying and analysis to allow the department to make more informed decisions regarding changing their facilities to better suit the community's needs.
 
 This project has the goal of answering the following questions:
 
