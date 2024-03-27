@@ -4,7 +4,7 @@ This is my final project for the [Data Engineering Zoomcamp course](https://gith
 
 To reproduce this project, see [recreate_project.md](recreate_project.md).
 
-## Project description
+## Project Description
 
 The Arlington Dept of Parks and Recreation manages park, tennis court, rectangular field, picnic shelter, diamond field, community center and other facility reservations. The reservations dataset includes detailed reservation information for each facility. The department would like to analyze this data to understand which spaces are being reserved/utilized the most for each type of facility they manage. This project aims to develop a streamlined end-to-end data pipeline to transform the dataset into a dashboard that is more suitable for querying and analysis. This would allow the department to make more informed decisions regarding improving their facilities to better suit their community's needs.
 
@@ -16,7 +16,7 @@ This project has the goal of answering the following questions:
 
 3. What is the distribution of reservations broken down by faciltiy type per year?
 
-### Technologies
+### Technologies Used
 
 * [Mage](https://docs.mage.ai/introduction/overview) for pipeline development and workflow orchestration.
 
@@ -32,11 +32,11 @@ This project has the goal of answering the following questions:
 
 * [Google Looker Studio](https://lookerstudio.google.com/) for creating a dashboard to visualize the dataset.
 
-## Project architecture
+## Project Architecture
 
 ![](./img/project.png)
 
-### How the data pipeline works
+### Data Pipeline Structure
 
 * Mage pipelines:
 
