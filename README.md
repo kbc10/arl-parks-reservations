@@ -31,11 +31,11 @@ This project has the goal of answering the following questions:
 
 * dbt models:
 
-    1. [stg_arl_parks_data](./dbt_nyc_mvc/models/staging/stg_crashes.sql): selects a subset of columns from the raw table that was loaded into BigQuery.
+    1. [stg_arl_parks_data](./dbt/arl-parks-reservations/models/staging/stg_arl_parks_data.sql): selects a subset of columns from the raw table that was loaded into BigQuery.
 
-    2. [dim_facility_types](./dbt_nyc_mvc/models/core/fact_crashes.sql): selects all data from a seed CSV file that tranlates the facility type codes into more understandable text.  
+    2. [dim_facility_types](./dbt/arl-parks-reservations/models/core/dim_facility_types.sql): selects all data from a seed CSV file that tranlates the facility type codes into more understandable text.  
     
-    3. [fact_reservations](./dbt_nyc_mvc/models/core/fact_crashes.sql): selects all data from stg_arl_parks_data and partitions it by day. Here, the partitioning makes it more efficient to query the data and present it on the dashboard. 
+    3. [fact_reservations](./dbt/arl-parks-reservations/models/core/fact_reservations.sql)): selects all data from stg_arl_parks_data and partitions it by day. Here, the partitioning makes it more efficient to query the data and present it on the dashboard. 
 
 ### Technologies
 
@@ -51,7 +51,7 @@ This project has the goal of answering the following questions:
 
 * [Google Bigquery](https://cloud.google.com/bigquery) for performing SQL analytical queries and data transformations defined in dbt.
 
-* [Google Lookerstudio](https://lookerstudio.google.com/) for creating a dashboard to visualize the dataset.
+* [Google Looker Studio](https://lookerstudio.google.com/) for creating a dashboard to visualize the dataset.
 
 ## Results
 
@@ -109,18 +109,18 @@ git clone https://github.com/mage-ai/compose-quickstart.git mage-quickstart \
     - The [gcs_to_bq.py file](./mage/data_exporters/gcs_to_bq.py) is used as a data exporter block.
 6. OPTIONAL: The dataset gets updated daily. You can create triggers for these pipelines to run daily to update GCS and BigQuery with the most recent data.
 
-### Set up DBT
+### Set up dbt
 1. I used dbt cloud for this project. Create a project called "arl_parks_reervations".
 2. Connect the project to your git project repository.
 3. Connect the project to BigQuery by providing your Google service-account-keys (.json) file.
 4. Create a new branch to start developing models.
 5. Add the following models under the staging and core models:
     - staging
-        1. [stg_arl_parks_data](./dbt_nyc_mvc/models/staging/stg_crashes.sql): selects a subset of columns from the raw table that was loaded into BigQuery.
+        1. [stg_arl_parks_data](./dbt/arl-parks-reservationsmodels/staging/stg_arl_parks_data.sql): selects a subset of columns from the raw table that was loaded into BigQuery.
     - core
-        1. [dim_facility_types](./dbt_nyc_mvc/models/core/fact_crashes.sql): selects all data from a seed CSV file that tranlates the facility type codes into more understandable text.  
+        1. [dim_facility_types](./dbt/arl-parks-reservations/models/core/dim_facility_types.sql): selects all data from a seed CSV file that tranlates the facility type codes into more understandable text.  
         
-        3. [fact_reservations](./dbt_nyc_mvc/models/core/fact_crashes.sql): selects all data from stg_arl_parks_data and partitions it by day. Here, the partitioning makes it more efficient to query the data and present it on the dashboard. 
+        3. [fact_reservations](./dbt/arl-parks-reservations/models/core/fact_reservations.sql): selects all data from stg_arl_parks_data and partitions it by day. Here, the partitioning makes it more efficient to query the data and present it on the dashboard. 
 6. The project lineage graph should look like this.
 ![](./img/dashboard.png)
 7. Run `dbt build` in the command line of the IDE to start building the fact and dimension tables in BigQuery.
