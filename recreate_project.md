@@ -8,11 +8,11 @@
 
     <img src="./img/gcp_service_account.png" alt="gcp_service_account" width="300"/>
 
-    <img src="./img/gcp_roles.png" alt="gcp_roles" width="300"/>
+    <img src="./img/gcp_roles.png" alt="gcp_roles" width="400"/>
 
 4. Generate service-account-keys (.json) for authentication. Terraform and dbt will use this key to integrate with GCS and BigQuery. Under your service account, go to the "Keys" tab, then click on "Add Key" -> "Create New Key" -> "JSON" -> "Create". A JSON source file will be downloaded. Add this file to your project directory.
 
-    <img src="./img/gcp_json_key.png" alt="gcp_json_key" width="200"/>
+    <img src="./img/gcp_json_key.png" alt="gcp_json_key" width="300"/>
 
 ### Set up Terraform
 1. Install [Terraform](https://developer.hashicorp.com/terraform/install?ajs_aid=268d2cbe-21f8-4c6c-9588-849c28f1444b&product_intent=terraform) if you have't already done so.
@@ -46,7 +46,7 @@
 6. Open http://localhost:6789 in your browser to start developing pipelines.
 7. Create a standard (batch) pipeline to load the dataset from the API and to move it into a GCS bucket as a parquet file. 
 
-    <img src="./img/new_batch_pipeline.png" alt="new_batch_pipeline" width="200"/>
+    <img src="./img/new_batch_pipeline.png" alt="new_batch_pipeline" width="300"/>
 
     * [load_api_data.py](./mage/arl-parks-reservations-mage/data_loaders/load_api_data.py) is used as a data loader block. 
     * [export_to_gcs.py](./mage/arl-parks-reservations-mage/data_exporters/export_to_gcs.py) is used as a data exporter block
@@ -62,12 +62,12 @@
 1. I used dbt cloud for this project. Create a project called "arl_parks_reervations".
 2. Connect the project to your git project repository clicking on the settings wheel -> "Account Settings" -> "Projects" -> "Your Project".
 
-    <img src="./img/connect_to_github.png" alt="connect_to_github" width="400"/>
+    <img src="./img/connect_to_github.png" alt="connect_to_github" width="500"/>
 
 3. Connect the project to BigQuery by providing your Google service-account-keys (.json) file.
 4. Click on the "Develop" tab -> "Cloud IDE" and create a new branch to start developing models.
 
-    <img src="./img/create_branch.png" alt="create_branch" width="200"/>
+    <img src="./img/create_branch.png" alt="create_branch" width="300"/>
 
 5. Add the following models under the staging and core models:
     * staging
@@ -83,9 +83,9 @@
     ```dbt build --select --vars '{'is_test_run': 'false'}'``` to build the fact and dimension tables using the entire dataset.
 8. To deploy this project, you must create a production environment. Click on "Deploy" -> "Environments" -> "Create Environment". Enter in the environment details as below. 
 
-    <img src="./img/create_environment.png" alt="create_branch" width="800"/>
+    <img src="./img/create_environment.png" alt="create_branch" width="900"/>
 
 9. Go to your newly made Production environment and click on "Create Job" -> "Deploy Job". Edit the job to have a name and enter the job details as below.
     > Note: You can optionally have the job run on a schedule the build the data models with new data. This would be daily since the reservations dataset is updated daily. 
 
-    <img src="./img/deploy_job.png" alt="deploy_job" width="800"/>
+    <img src="./img/deploy_job.png" alt="deploy_job" width="900"/>
