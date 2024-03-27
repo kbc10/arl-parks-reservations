@@ -2,7 +2,7 @@
 
 This is my final project for the [Data Engineering Zoomcamp course](https://github.com/DataTalksClub/data-engineering-zoomcamp) by DataTalksClub. I built a batch data pipeline that extracts, transforms and loads the [Arlington, Virginia Dept of Parks and Recreation Facility Reservations](https://data.arlingtonva.us/dataset/74) dataset into a data warehouse in  [Google Cloud Platform (GCP)](https://cloud.google.com/). Further transformations are done on the data using [dbt](https://www.getdbt.com/) (data build tool) for preparation of a dashboard.
 
-For the steps of how to reproduce this project, see [recreate_project.md](recreate_project.md).
+To reproduce this project, see [recreate_project.md](recreate_project.md).
 
 ## Project description
 
