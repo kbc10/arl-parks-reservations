@@ -6,9 +6,9 @@
 3. Create a GCP service account. From the sidebar, go to "IAM & Admin" -> "Service Accounts" -> "Create Service Account".
     > Note: Grant "BigQuery Admin", "Storage Admin" and "Storage Object Admin" permissions to our service account. In real life, we would not grant such wide permissions to this account, but these should work for the purposes of this project.
 
-    <img src="./img/gcp_service_account.png" alt="gcp_service_account" width="200"/>
+    <img src="./img/gcp_service_account.png" alt="gcp_service_account" width="300"/>
 
-    <img src="./img/gcp_roles.png" alt="gcp_roles" width="200"/>
+    <img src="./img/gcp_roles.png" alt="gcp_roles" width="300"/>
 
 4. Generate service-account-keys (.json) for authentication. Terraform and dbt will use this key to integrate with GCS and BigQuery. Under your service account, go to the "Keys" tab, then click on "Add Key" -> "Create New Key" -> "JSON" -> "Create". A JSON source file will be downloaded. Add this file to your project directory.
 
@@ -39,33 +39,33 @@ git clone https://github.com/mage-ai/compose-quickstart.git mage-quickstart \
 3. Open http://localhost:6789 in your browser to start developing pipelines.
 4. Create a standard (batch) pipeline to load the dataset from the API and to move it into a GCS bucket as a parquet file. 
 
-<img src="./img/new_batch_pipeline.png" alt="new_batch_pipeline" width="200"/>
+    <img src="./img/new_batch_pipeline.png" alt="new_batch_pipeline" width="200"/>
 
-    - [load_api_data.py](./mage/arl-parks-reservations-mage/data_loaders/load_api_data.py) is used as a data loader block. 
-    - [export_to_gcs.py](./mage/arl-parks-reservations-mage/data_exporters/export_to_gcs.py) is used as a data exporter block
+    * [load_api_data.py](./mage/arl-parks-reservations-mage/data_loaders/load_api_data.py) is used as a data loader block. 
+    * [export_to_gcs.py](./mage/arl-parks-reservations-mage/data_exporters/export_to_gcs.py) is used as a data exporter block
 5. Create a standard (batch)pipeline to load the parquet file from GCS into BigQuery
-    - [load_parks_res_gcs.py](./mage/arl-parks-reservations-mage/data_loaders/load_parks_res_gcs.py) is used as a data loader block.
-    - [transformer_clean_column_names.py](./mage/arl-parks-reservations-mage/transformers/transformer_clean_column_names.py) is used as a transformer block
-    - [export_to_bq.sql](./mage/arl-parks-reservations-mage/data_exporters/export_to_bq.sql) is used as a data exporter block.
+    * [load_parks_res_gcs.py](./mage/arl-parks-reservations-mage/data_loaders/load_parks_res_gcs.py) is used as a data loader block.
+    * [transformer_clean_column_names.py](./mage/arl-parks-reservations-mage/transformers/transformer_clean_column_names.py) is used as a transformer block
+    * [export_to_bq.sql](./mage/arl-parks-reservations-mage/data_exporters/export_to_bq.sql) is used as a data exporter block.
 6. OPTIONAL: The dataset gets updated daily. You can create triggers for these pipelines to run daily to update GCS and BigQuery with the most recent data.
 
-    <img src="./img/schedule_trigger.png" alt="schedule_trigger" width="200"/>
+    <img src="./img/schedule_trigger.png" alt="schedule_trigger" width="400"/>
 
 ### Set up dbt
 1. I used dbt cloud for this project. Create a project called "arl_parks_reervations".
 2. Connect the project to your git project repository clicking on the settings wheel -> "Account Settings" -> "Projects" -> "Your Project".
 
-    <img src="./img/connect_to_github.png" alt="connect_to_github" width="300"/>
+    <img src="./img/connect_to_github.png" alt="connect_to_github" width="400"/>
 
 3. Connect the project to BigQuery by providing your Google service-account-keys (.json) file.
 4. Click on the "Develop" tab -> "Cloud IDE" and create a new branch to start developing models.
 
-    <img src="./img/create_branch.png" alt="create_branch" width="300"/>
+    <img src="./img/create_branch.png" alt="create_branch" width="200"/>
 
 5. Add the following models under the staging and core models:
-    - staging
+    * staging
         1. [stg_arl_parks_data](./dbt/arl-parks-reservationsmodels/staging/stg_arl_parks_data.sql): selects a subset of columns from the raw table that was loaded into BigQuery.
-    - core
+    * core
         1. [dim_facility_types](./dbt/arl-parks-reservations/models/core/dim_facility_types.sql): selects all data from a seed CSV file that tranlates the facility type codes into more understandable text.  
         
         3. [fact_reservations](./dbt/arl-parks-reservations/models/core/fact_reservations.sql): selects a subset of columns from stg_arl_parks_data and partitions it by day. Here, the partitioning makes it more efficient to query the data and present it on the dashboard. 
@@ -76,9 +76,9 @@ git clone https://github.com/mage-ai/compose-quickstart.git mage-quickstart \
     ```dbt build --select --vars '{'is_test_run': 'false'}'``` to build the fact and dimension tables using the entire dataset.
 8. To deploy this project, you must create a production environment. Click on "Deploy" -> "Environments" -> "Create Environment". Enter in the environment details as below. 
 
-    <img src="./img/create_environment.png" alt="create_branch" width="500"/>
+    <img src="./img/create_environment.png" alt="create_branch" width="600"/>
 
 9. Go to your newly made Production environment and click on "Create Job" -> "Deploy Job". Edit the job to have a name and enter the job details as below.
     > Note: You can optionally have the job run on a schedule the build the data models with new data. This would be daily since the reservations dataset is updated daily. 
 
-    <img src="./img/deploy_job.png" alt="deploy_job" width="500"/>
+    <img src="./img/deploy_job.png" alt="deploy_job" width="600"/>

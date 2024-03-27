@@ -2,11 +2,11 @@
 
 This is my final project for the [Data Engineering Zoomcamp course](https://github.com/DataTalksClub/data-engineering-zoomcamp) by DataTalksClub. I built a batch data pipeline that extracts, transforms and loads the [Arlington, Virginia Dept of Parks and Recreation Facility Reservations](https://data.arlingtonva.us/dataset/74) dataset into a data warehouse in  [Google Cloud Platform (GCP)](https://cloud.google.com/). Further transformations are done on the data using [dbt](https://www.getdbt.com/) (data build tool) for preparation of a dashboard.
 
-For the steps of how to reproduce this project, see [recreate-project.md](recreate_project.md).
+For the steps of how to reproduce this project, see [recreate_project.md](recreate_project.md).
 
 ## Project description
 
-The Arlington Dept of Parks and Recreation manages park, tennis court, rectangular field, picnic shelter, diamond field, community center and other facility reservations. The reservations dataset includes detailed reservation information for each facility. The department would like to analyze this data to understand which spaces are being reserved/utilized the most for each type of facility that they manage. This project aims to develop a streamlined end-to-end data pipeline to transform the dataset into a dashboard that is more suitable for querying and analysis to allow the department to make more informed decisions regarding improving their facilities to better suit the community's needs.
+The Arlington Dept of Parks and Recreation manages park, tennis court, rectangular field, picnic shelter, diamond field, community center and other facility reservations. The reservations dataset includes detailed reservation information for each facility. The department would like to analyze this data to understand which spaces are being reserved/utilized the most for each type of facility that they manage. This project aims to develop a streamlined end-to-end data pipeline to transform the dataset into a dashboard that is more suitable for querying and analysis to allow the department to make more informed decisions regarding improving their facilities to better suit their community's needs.
 
 This project has the goal of answering the following questions:
 
@@ -20,7 +20,7 @@ This project has the goal of answering the following questions:
 
 * [Mage](https://docs.mage.ai/introduction/overview) for pipeline development and workflow orchestration.
 
-* [Terraform](https://www.terraform.io/) for managing and provisioning infrastructure (GCS bucket abd BigQuery dataset) in GCP.
+* [Terraform](https://www.terraform.io/) for managing and provisioning infrastructure (Google Cloud Storage bucket and BigQuery dataset) in Google Cloud Platform.
 
 * [Docker](https://www.docker.com/) for containerizing software services, applications, and their dependencies for easier reuse and deployment.
 
@@ -59,7 +59,7 @@ This project has the goal of answering the following questions:
 
     1. [stg_arl_parks_data](./dbt/arl-parks-reservations/models/staging/stg_arl_parks_data.sql): selects a subset of columns from the raw table that was loaded into BigQuery.
 
-    2. [dim_facility_types](./dbt/arl-parks-reservations/models/core/dim_facility_types.sql): selects all data from a seed CSV file that translates the facility type codes into more understandable text.  
+    2. [dim_facility_types](./dbt/arl-parks-reservations/models/core/dim_facility_types.sql): selects all data from a seed [CSV file](./dbt/arl-parks-reservations/seeds/reservation_facility_types.csv) that translates the facility type codes into more understandable text.  
     
     3. [fact_reservations](./dbt/arl-parks-reservations/models/core/fact_reservations.sql): selects all data from stg_arl_parks_data and partitions it by day. Partitioning makes it more efficient to query the data and present it on the dashboard. 
 
@@ -80,7 +80,7 @@ The dashboard is publicly available in this [link](https://lookerstudio.google.c
 
 * The most reserved location is Walter Reed Community Center with 98,055 reservations from 2015-present and the least is Thrifton Hills Park with 56.
 
-* Reservations for Rectangular Fields have risen between 2015-2023 with a dip in 2020 due to the pandemic indicating increased use by the community.
+* Reservations for Rectangular Fields have risen between 2015-2023 with a dip in 2020 due to the pandemic indicating generally increased use by the community.
 
 * Reservations for Pickleball Courts have dramatically increased in the last 2 years indicating rising popularity in the sport which may see increased demand for more courts in the future.
 
