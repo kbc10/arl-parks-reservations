@@ -12,7 +12,7 @@
 
 4. Generate service-account-keys (.json) for authentication. Terraform and dbt will use this key to integrate with GCS and BigQuery. Under your service account, go to the "Keys" tab, then click on "Add Key" -> "Create New Key" -> "JSON" -> "Create". A JSON source file will be downloaded. Add this file to your project directory.
 
-<img src="./img/gcp_json_key.png" alt="gcp_json_key" width="200"/>
+    <img src="./img/gcp_json_key.png" alt="gcp_json_key" width="200"/>
 
 ### Set up Terraform
 1. Install [Terraform](https://developer.hashicorp.com/terraform/install?ajs_aid=268d2cbe-21f8-4c6c-9588-849c28f1444b&product_intent=terraform) if you have't already done so.
