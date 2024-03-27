@@ -6,7 +6,7 @@ For the steps of how to reproduce this project, see [recreate-project.md](recrea
 
 ## Project description
 
-The Arlington Dept of Parks and Recreation manages park, tennis court, rectangular field, picnic shelter, diamond field, community center and other facility reservations. The reservations dataset includes detailed reservation information for each facility. The department would like to analyze this data to understand which spaces are being reserved/utilized the most for each type of facility that they manage. This project aims to develop a streamlined end-to-end data pipeline to transform the dataset into a dashboard that is more suitable for querying and analysis to allow the department to make more informed decisions regarding changing their facilities to better suit the community's needs.
+The Arlington Dept of Parks and Recreation manages park, tennis court, rectangular field, picnic shelter, diamond field, community center and other facility reservations. The reservations dataset includes detailed reservation information for each facility. The department would like to analyze this data to understand which spaces are being reserved/utilized the most for each type of facility that they manage. This project aims to develop a streamlined end-to-end data pipeline to transform the dataset into a dashboard that is more suitable for querying and analysis to allow the department to make more informed decisions regarding improving their facilities to better suit the community's needs.
 
 This project has the goal of answering the following questions:
 
@@ -22,7 +22,7 @@ This project has the goal of answering the following questions:
 
 * [Terraform](https://www.terraform.io/) for managing and provisioning infrastructure (GCS bucket abd BigQuery dataset) in GCP.
 
-* [Docker](https://www.docker.com/) for encapsulating the dataflows and their dependencies into containers, making it easier to deploy them.
+* [Docker](https://www.docker.com/) for containerizing software services, applications, and their dependencies for easier reuse and deployment.
 
 * [Data Build Tool (dbt)](https://www.getdbt.com/) for transforming and partitioning the dataset in the data warehouse.
 
@@ -52,14 +52,14 @@ This project has the goal of answering the following questions:
         <img src="./img/gcs_to_bq.png" alt="gcs-to_bq" width="200"/>
         
         -  [load_parks_res_gcs.py](./mage/arl-parks-reservations-mage/data_loaders/load_parks_res_gcs.py) loads the data from the parquet file in the bucket.
-        -  [transformer_clean_column_names.py](./mage/arl-parks-reservations-mage/transformers/transformer_clean_column_names.py) cleans the column names by lowercasing capital letter and putting underscores between words.
-        -  [export_to_bq.sql](./mage/arl-parks-reservations-mage/data_exporters/export_to_bq.sql) loads the data from the parquet file in the bucket.
+        -  [transformer_clean_column_names.py](./mage/arl-parks-reservations-mage/transformers/transformer_clean_column_names.py) cleans the column names by lowercasing capital letters and inserting underscores between words.
+        -  [export_to_bq.sql](./mage/arl-parks-reservations-mage/data_exporters/export_to_bq.sql) exports the cleaned data to a new table in our dataset in BigQuery.
 
 * dbt models:
 
     1. [stg_arl_parks_data](./dbt/arl-parks-reservations/models/staging/stg_arl_parks_data.sql): selects a subset of columns from the raw table that was loaded into BigQuery.
 
-    2. [dim_facility_types](./dbt/arl-parks-reservations/models/core/dim_facility_types.sql): selects all data from a seed CSV file that tranlates the facility type codes into more understandable text.  
+    2. [dim_facility_types](./dbt/arl-parks-reservations/models/core/dim_facility_types.sql): selects all data from a seed CSV file that translates the facility type codes into more understandable text.  
     
     3. [fact_reservations](./dbt/arl-parks-reservations/models/core/fact_reservations.sql): selects all data from stg_arl_parks_data and partitions it by day. Partitioning makes it more efficient to query the data and present it on the dashboard. 
 
