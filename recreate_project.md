@@ -56,7 +56,7 @@
     * [export_to_bq.sql](./mage/arl-parks-reservations-mage/data_exporters/export_to_bq.sql) is used as a data exporter block.
 9. OPTIONAL: The dataset gets updated daily. You can create triggers for these pipelines to run daily to update GCS and BigQuery with the most recent data.
 
-    <img src="./img/schedule_trigger.png" alt="schedule_trigger" width="400"/>
+    <img src="./img/schedule_trigger.png" alt="schedule_trigger" width="600"/>
 
 ### Set up dbt
 1. I used dbt cloud for this project. Create a project called "arl_parks_reervations".
@@ -83,9 +83,9 @@
     ```dbt build --select --vars '{'is_test_run': 'false'}'``` to build the fact and dimension tables using the entire dataset.
 8. To deploy this project, you must create a production environment. Click on "Deploy" -> "Environments" -> "Create Environment". Enter in the environment details as below. 
 
-    <img src="./img/create_environment.png" alt="create_branch" width="600"/>
+    <img src="./img/create_environment.png" alt="create_branch" width="800"/>
 
 9. Go to your newly made Production environment and click on "Create Job" -> "Deploy Job". Edit the job to have a name and enter the job details as below.
     > Note: You can optionally have the job run on a schedule the build the data models with new data. This would be daily since the reservations dataset is updated daily. 
 
-    <img src="./img/deploy_job.png" alt="deploy_job" width="600"/>
+    <img src="./img/deploy_job.png" alt="deploy_job" width="800"/>
