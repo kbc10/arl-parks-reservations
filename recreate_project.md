@@ -19,10 +19,10 @@
 2. Create a new folder in your project directory called `terraform` and create a `main.tf` file like [this](./terraform/main.tf).
     > Note: You can also create `variables.tf` to store your varibales like [this](./terraform/variabled.tf).
 3. Initialize terraform and install any required plugins and settings.
-```
-cd terraform
-terraform init
-```
+    ```
+    cd terraform
+    terraform init
+    ```
 4. Run `terraform plan` to see how terraform will create or modify our infrastructure (i.e. our GCS bucket and BigQUery dataset).
 5. Apply the plan with `terraform plan`.
 6. Check your GCP project to see that a bucket and dataset have been created.
