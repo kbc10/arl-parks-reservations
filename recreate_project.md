@@ -17,7 +17,7 @@
 ### Set up Terraform
 1. Install [Terraform](https://developer.hashicorp.com/terraform/install?ajs_aid=268d2cbe-21f8-4c6c-9588-849c28f1444b&product_intent=terraform) if you have't already done so.
 2. Create a new folder in your project directory called `terraform` and create a `main.tf` file like [this](./terraform/main.tf).
-    > Note: You can also create `variables.tf` to store your varibales like [this](./terraform/variabled.tf).
+    > Note: You can also create `variables.tf` to store your varibales like [this](./terraform/variables.tf).
 3. Initialize terraform and install any required plugins and settings.
     ```
     cd terraform
