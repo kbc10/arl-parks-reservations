@@ -25,9 +25,9 @@ This project has the goal of answering the following questions:
 
 * Mage pipelines:
 
-    1. [ETL API to GCS](./workflows/web_to_gcs/etl_web_to_gcs.py): pulls data from the Arlington Parks and Rec Open Data API and loads the data into a bucket in Google Cloud Storage (GCS) as a parquet file.
+    1. [API to GCS](./workflows/web_to_gcs/etl_web_to_gcs.py): pulls data from the Arlington Parks and Rec Open Data API and loads the data into a bucket in Google Cloud Storage (GCS) as a parquet file.
 
-    2. [ETL GCS to BigQuery](./workflows/gcs_to_bq/etl_gcs_to_bq.py): extracts the data from the bucket in GCS, transforms string columns by stripping leading and trailing whitespaces, replacing multiple spaces with a single space and bringing all column names to lowercase, and loads the data into a BigQuery dataset.
+    2. [GCS to BigQuery](./workflows/gcs_to_bq/etl_gcs_to_bq.py): extracts the data from the bucket in GCS, transforms string columns by stripping leading and trailing whitespaces, replacing multiple spaces with a single space and bringing all column names to lowercase, and loads the data into a BigQuery dataset.
 
 * dbt models:
 
