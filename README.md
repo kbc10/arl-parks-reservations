@@ -34,7 +34,7 @@ This project has the goal of answering the following questions:
 
 ## Project Architecture
 
-![](./img/project.png)
+![](./img/workflow_diagram.png)
 
 ### Data Pipeline Structure
 
