@@ -37,7 +37,7 @@
     ```
 3. Edit `.env` file in the `mage-quickstart` directory and assign the `PROJECT_NAME` variable with a project name of your choosing. 
 4. Run `docker compose up` in the terminal to start the Mage docker container.
-5. Copy your service account key JSON file into the `mage-quickstart` directory. We need to map this key to the Mage docker container so that it can access GCS and BigfQuery. Navigate to and edit the `io_config.yaml` file in your new project's directory (under the `mage-quickstart` directory) to change the Google section to the following:
+5. Copy your service account key JSON file into the `mage-quickstart` directory. We need to map this key to the Mage docker container so that it can access GCS and BigQuery. Navigate to and edit the `io_config.yaml` file in your new project's directory (under the `mage-quickstart` directory) to change the Google section to the following:
     ```
     # Google
       GOOGLE_SERVICE_ACC_KEY_FILEPATH: "/home/src/your-private-key.json"
