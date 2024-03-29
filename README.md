@@ -80,7 +80,7 @@ The Looker Studio dashboard is publicly available in this [link](https://lookers
 
 * The most reserved location is Walter Reed Community Center with 98,105 (at the time of this writing) reservations and counting from 2015-present and the least is Thrifton Hills Park with 56 and counting.
 
-* Reservations for Rectangular Fields have risen between 2015-2023 with a dip in 2020 due to the pandemic indicating generally increased use by the community.
+* Reservations for Rectangular Fields have risen steadily between 2015-2023 indicating generally increased use by the community. However, there was a dip in 2020 due to the pandemic.
 
 * Reservations for Pickleball Courts have dramatically increased in the last 2 years indicating rising popularity in the sport which may see increased demand for more courts in the future.
 
