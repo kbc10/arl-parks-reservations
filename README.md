@@ -45,7 +45,7 @@ This project has the goal of answering the following questions:
         <img src="./img/api_to_gcs.png" alt="api_to_gcs" width="200"/>
         
         -  [load_api_data.py](./mage/arl-parks-reservations-mage/data_loaders/load_api_data.py) pulls data from the Arlington Parks and Rec Open Data API and specifies data types for each column.
-        -  [export_to_gcs.py](./mage/arl-parks-reservations-mage/data_exporters/export_to_gcs.py) loads the data into a bucket in Google Cloud Storage (GCS) as a parquet file.
+        -  [export_to_gcs.py](./mage/arl-parks-reservations-mage/data_exporters/export_to_gcs.py) loads the data into a bucket (provisioned with Terraform) in Google Cloud Storage (GCS) as a parquet file.
 
     2. GCS to BigQuery 
 
@@ -53,7 +53,7 @@ This project has the goal of answering the following questions:
         
         -  [load_parks_res_gcs.py](./mage/arl-parks-reservations-mage/data_loaders/load_parks_res_gcs.py) loads the data from the parquet file in the bucket.
         -  [transformer_clean_column_names.py](./mage/arl-parks-reservations-mage/transformers/transformer_clean_column_names.py) cleans the column names by lowercasing capital letters and inserting underscores between words.
-        -  [export_to_bq.sql](./mage/arl-parks-reservations-mage/data_exporters/export_to_bq.sql) exports the cleaned data to a new table in our dataset in BigQuery.
+        -  [export_to_bq.sql](./mage/arl-parks-reservations-mage/data_exporters/export_to_bq.sql) exports the cleaned data to a new table in our dataset (provisioned with Terraform) in BigQuery.
 
 * dbt models:
 
@@ -65,7 +65,7 @@ This project has the goal of answering the following questions:
 
 ## Results
 
-The dashboard is publicly available in this [link](https://lookerstudio.google.com/s/tKVgUHbPTGc).
+The Looker Studio dashboard is publicly available in this [link](https://lookerstudio.google.com/s/tKVgUHbPTGc).
 
 ![](./img/dashboard.png)
 
