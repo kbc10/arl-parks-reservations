@@ -5,18 +5,20 @@ variable "credentials" {
   #saved there as my-creds.json you could use default = "./keys/my-creds.json"
 }
 
-
+# use your GCP project's name
 variable "project" {
   description = "Project"
   default     = "your-project-name"
 }
 
+# use your GCP project's region e.g. us-east1
 variable "region" {
   description = "Region"
   #Update the below to your desired region
   default     = "your-region"
 }
 
+# use your GCP project's location e.g. US
 variable "location" {
   description = "Project Location"
   #Update the below to your desired location
