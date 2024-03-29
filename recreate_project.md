@@ -6,7 +6,7 @@
 3. Create a GCP service account. From the sidebar, go to "IAM & Admin" -> "Service Accounts" -> "Create Service Account".
     > Note: Grant "BigQuery Admin", "Storage Admin" and "Storage Object Admin" permissions to our service account. In real life, we would not grant such wide permissions to this account, but these should work for the purposes of this project.
 
-    <img src="./img/gcp_service_account.png" alt="gcp_service_account" width="300"/>
+    <img src="./img/gcp_service_account.png" alt="gcp_service_account" width="400"/>
 
     <img src="./img/gcp_roles.png" alt="gcp_roles" width="400"/>
 
