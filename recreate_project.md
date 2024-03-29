@@ -72,7 +72,7 @@
 
 5. Add the following models under the staging and core models:
     * staging
-        1. [stg_arl_parks_data](./dbt/arl-parks-reservationsmodels/staging/stg_arl_parks_data.sql): selects a subset of columns from the raw table that was loaded into BigQuery.
+        1. [stg_arl_parks_data](./dbt/arl-parks-reservations/models/staging/stg_arl_parks_data.sql): selects a subset of columns from the raw table that was loaded into BigQuery.
     * core
         1. [dim_facility_types](./dbt/arl-parks-reservations/models/core/dim_facility_types.sql): selects all data from a seed CSV file that tranlates the facility type codes into more understandable text.  
         2. [fact_reservations](./dbt/arl-parks-reservations/models/core/fact_reservations.sql): selects a subset of columns from stg_arl_parks_data and partitions it by day. Here, the partitioning makes it more efficient to query the data and present it on the dashboard. 
