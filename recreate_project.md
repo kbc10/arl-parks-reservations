@@ -29,7 +29,7 @@
 
 ### Set up Mage
 1. The [Mage quickstart repo](https://github.com/mage-ai/compose-quickstart) provides a template for users to have an easy way to deploy a project using Docker. 
-2. Run the following commands to copy the quickstart repo to your directory, move the `mage-quickstart` folder, and copy the `dev.env` file to a `.env` file.
+2. Run the following commands to copy the quickstart repo to your directory, change into the `mage-quickstart` folder, and copy the `dev.env` file to a `.env` file.
     ```
     git clone https://github.com/mage-ai/compose-quickstart.git mage-quickstart \
     && cd mage-quickstart \
@@ -37,7 +37,7 @@
     ```
 3. Edit `.env` file in the `mage-quickstart` directory and assign the `PROJECT_NAME` variable with a project name of your choosing. 
 4. Run `docker compose up` in the terminal to start the Mage docker container.
-5. Copy your service account key JSON file into the `mage-quickstart` directoy. We need to map this key to the Mage docker container so that it can access GCS and BigfQuery. Navigate to and edit the `io_config.yaml` file in your new project's directory (under the `mage-quickstart` directory) to change the Google section to the following:
+5. Copy your service account key JSON file into the `mage-quickstart` directory. We need to map this key to the Mage docker container so that it can access GCS and BigfQuery. Navigate to and edit the `io_config.yaml` file in your new project's directory (under the `mage-quickstart` directory) to change the Google section to the following:
     ```
     # Google
       GOOGLE_SERVICE_ACC_KEY_FILEPATH: "/home/src/your-private-key.json"
@@ -51,7 +51,7 @@
 
     * [load_api_data.py](./mage/arl-parks-reservations-mage/data_loaders/load_api_data.py) is used as a Python data loader block. 
     * [export_to_gcs.py](./mage/arl-parks-reservations-mage/data_exporters/export_to_gcs.py) is used as a Python data exporter block.
-8. Create a standard (batch)pipeline to load the parquet file from GCS into BigQuery
+8. Create a standard (batch) pipeline to load the parquet file from GCS into BigQuery
     * [load_parks_res_gcs.py](./mage/arl-parks-reservations-mage/data_loaders/load_parks_res_gcs.py) is used as a Python data loader block.
     * [transformer_clean_column_names.py](./mage/arl-parks-reservations-mage/transformers/transformer_clean_column_names.py) is used as a Python transformer block
     * [export_to_bq.sql](./mage/arl-parks-reservations-mage/data_exporters/export_to_bq.sql) is used as a SQL data exporter block. Select `BigQuery` as the connection and `default` as the profile. Check the box for "Use raw SQL".
