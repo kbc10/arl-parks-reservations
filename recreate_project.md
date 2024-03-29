@@ -17,15 +17,15 @@
 ### Set up Terraform
 1. Install [Terraform](https://developer.hashicorp.com/terraform/install?ajs_aid=268d2cbe-21f8-4c6c-9588-849c28f1444b&product_intent=terraform) if you have't already done so.
 2. Create a new folder in your project directory called `terraform` and create a `main.tf` file like [this](./terraform/main.tf).
-    > Note: You can also create a `variables.tf` file to store your varibales like [this](./terraform/variables.tf) instead of repeatedly typing them.
-3. Initialize Terraform and install any required plugins and settings.
+3. Create a `variables.tf` file to store your varibales like [this](./terraform/variables.tf) instead of repeatedly typing them.
+4. Initialize Terraform and install any required plugins and settings.
     ```
     cd terraform
     terraform init
     ```
-4. Run `terraform plan` to see how Terraform will create or modify our infrastructure (i.e. a GCS bucket and a BigQUery dataset).
-5. Apply the plan with `terraform apply`.
-6. Check your GCP project to see that a bucket and dataset have been created.
+5. Run `terraform plan` to see how Terraform will create or modify our infrastructure (i.e. a GCS bucket and a BigQUery dataset).
+6. Apply the plan with `terraform apply`.
+7. Check your GCP project to see that a bucket and dataset have been created.
 
 ### Set up Mage
 1. The [Mage quickstart repo](https://github.com/mage-ai/compose-quickstart) provides a template for users to have an easy way to deploy a project using Docker. 
